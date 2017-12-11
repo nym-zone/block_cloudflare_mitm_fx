@@ -1,0 +1,1 @@
+335868a2ef8966ecd11db6532bca642cbd1d9eb31d5f9f1d79d9bd0d77f15c45  block_cloudflare_mitm_attack-1.0.0-an+fx.xpi
