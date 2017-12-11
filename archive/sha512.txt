@@ -1,1 +1,0 @@
-55e0a9c04e891e9bf3abe5b72d38d4e3213e120adbbbb1422cf5bd21bac4008e546988b987d684cdf8838d773cc8bcd9d61767a53a0b7f5674abc361b1fb3a4c  block_cloudflare_mitm_attack-1.0.0-an+fx.xpi
