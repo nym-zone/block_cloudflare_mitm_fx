@@ -1,15 +1,31 @@
 {
 "manifest_version": 2,
 "name": "Block Cloudflare MiTM Attack",
-"description": "If the destination use Cloudflare, block future request.",
-"version": "1.0.0",
+"description": "If the destination website use Cloudflare, block further request.",
+"version": "1.0.7.1",
 "homepage_url": "https://trac.torproject.org/projects/tor/ticket/24351",
-"permissions": ["webRequest","webRequestBlocking","<all_urls>"],
+"permissions": ["webRequest","webRequestBlocking","<all_urls>","storage","activeTab"],
+"options_ui": {
+ "page": "setwhitelist.html",
+ "browser_style": true
+},
 "icons": {
+ "32": "icons/icon-32.png",
  "48": "icons/icon-48.png",
  "64": "icons/icon-64.png"
 },
-"background": {
- "scripts": ["stop_cf_mitm.js"]
+"browser_action": {
+"browser_style": true,
+"default_icon": {
+ "16": "icons/icon-16.png",
+ "32": "icons/icon-32.png"
+}
+},
+"background": {"scripts": ["stop_cf_mitm.js"]},
+"applications": {
+  "gecko": {
+    "id": "{d86b44dd-ef12-4f28-ab1c-ea32664490ac}",
+    "strict_min_version": "52.0"
+  }
 }
 }
