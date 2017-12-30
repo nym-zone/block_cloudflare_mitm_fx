@@ -2,7 +2,7 @@
 "manifest_version": 2,
 "name": "Block Cloudflare MiTM Attack",
 "description": "If the destination website use Cloudflare, block further request.",
-"version": "1.0.7.1",
+"version": "1.0.8",
 "homepage_url": "https://trac.torproject.org/projects/tor/ticket/24351",
 "permissions": ["webRequest","webRequestBlocking","<all_urls>","storage","activeTab"],
 "options_ui": {

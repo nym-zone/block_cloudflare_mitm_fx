@@ -6,6 +6,7 @@
  *	http://www.crimeflare.com/
  */
 
+var cfaddon_isdone=0;
 var cf_ignore=[];
 var cf_history=[];//used by whitelist-from-warnpage
 var stop_incapsula=0;
@@ -15,13 +16,11 @@ var ign_phttp=0;
 var ign_rescj=0;
 var do_simplewarn=0;
 
-function whitelist_reload(w){
+function whitelist_reload(){browser.storage.local.get().then(function(w){
 //WHITELIST
 if (w.myset_cfwhite){
-var tmp_whitelist=w.myset_cfwhite;
-tmp_whitelist=tmp_whitelist.split("\n").filter(v=>v!='');
+var tmp_whitelist=w.myset_cfwhite;tmp_whitelist=tmp_whitelist.split("\n").filter(v=>v!='');
 cf_ignore=tmp_whitelist;
-//console.log(cf_ignore);
 }else{cf_ignore=[];}
 //ADVANCED
 if (w.myset_xincapsula=='y'){stop_incapsula=1;}else{stop_incapsula=0;}
@@ -30,12 +29,13 @@ if (w.myset_xsucuri=='y'){stop_sucuri=1;}else{stop_sucuri=0;}
 if (w.myset_xignhttp=='y'){ign_phttp=1;}else{ign_phttp=0;}
 if (w.myset_xigncj=='y'){ign_rescj=1;}else{ign_rescj=0;}
 if (w.myset_xsimplewarn=='y'){do_simplewarn=1;}else{do_simplewarn=0;}
-}
+},onError);}
 
 function onError(e){console.log(`CFMITM Error:${e}`);}
 
 function analyzemydata(res){
-var lmcfg=browser.storage.local.get();lmcfg.then(whitelist_reload,onError);// load latest settings without restarting a browser
+if (cfaddon_isdone==0){cfaddon_isdone=1;whitelist_reload();}
+if (ign_rescj==1){if (/^http(.*)\.(js|css|jpg|jpeg|gif|png|tif|ico|svg|woff|woff2|ttf|cur|ani)(|\?(.*))$/.test(res.url)||['image','stylesheet'].includes(res.type)){return;}}
 
 //console.log("CFMITM: scanning: "+res.url);
   var cflink = document.createElement('a');
@@ -53,8 +53,6 @@ if (stop_sucuri==1){if (cf_hostname.endsWith('.sucuri.net')||cf_hostname=='sucur
 //whitelisted
 if (cf_ignore.includes(cf_hostname)){return;}
 if (cf_protocol=='http:' && ign_phttp==1){return;}
-if (ign_rescj==1 && /^http(.*)\.(js|css|jpg|jpeg|gif|png|tif|ico|svg|woff|woff2|ttf|cur|ani)(|\?(.*))$/.test(res.url)){return;}
-
 
   if ((cf_protocol == 'http:' || cf_protocol == 'https:') && cf_hostname.length >= 4) {
 
@@ -150,4 +148,5 @@ return {cancel: true};
 
 browser.webRequest.onHeadersReceived.addListener(analyzemydata,{urls:["http://*/*","https://*/*"]},["blocking","responseHeaders"]);
 browser.webRequest.onBeforeRequest.addListener(gotwhitelistrequest,{urls:["https://0.0.0.0/cfmitm_addon/*"]},["blocking"]);
+browser.runtime.onMessage.addListener(function(r,s,sr){if (r.relnow!=undefined){whitelist_reload();sr({response: 'ok'});};return true;});
 browser.browserAction.onClicked.addListener(function(t){browser.runtime.openOptionsPage().then(function(){},onError);});

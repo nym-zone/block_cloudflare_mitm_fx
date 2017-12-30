@@ -1,4 +1,5 @@
-function saveWhitelist(e) {
+function onError(e){console.log(`CFMITM_CFG Error:${e}`);}
+function saveWhitelist(e){
 e.preventDefault();
 //WHITELIST
 // check each line and remove bad fqdn (simple check)
@@ -23,6 +24,7 @@ if (document.querySelector("#myset_xsucuri").checked){browser.storage.local.set(
 if (document.querySelector("#myset_xignhttp").checked){browser.storage.local.set({myset_xignhttp: "y"});}else{browser.storage.local.set({myset_xignhttp: "n"});}
 if (document.querySelector("#myset_xigncj").checked){browser.storage.local.set({myset_xigncj: "y"});}else{browser.storage.local.set({myset_xigncj: "n"});}
 if (document.querySelector("#myset_xsimplewarn").checked){browser.storage.local.set({myset_xsimplewarn: "y"});}else{browser.storage.local.set({myset_xsimplewarn: "n"});}
+browser.runtime.sendMessage({relnow:'go'}).then(function(r){},onError);
 }
 function loadWhitelist(){
 function setCurrentChoice(r){
@@ -36,7 +38,6 @@ if (r.myset_xignhttp=='y'){document.querySelector("#myset_xignhttp").checked=tru
 if (r.myset_xigncj=='y'){document.querySelector("#myset_xigncj").checked=true;}else{document.querySelector("#myset_xigncj").checked=false;}
 if (r.myset_xsimplewarn=='y'){document.querySelector("#myset_xsimplewarn").checked=true;}else{document.querySelector("#myset_xsimplewarn").checked=false;}
 }
-function onError(e){console.log(`CFMITM_CFG Error:${e}`);}
 var getting=browser.storage.local.get();
 getting.then(setCurrentChoice, onError);
 }
