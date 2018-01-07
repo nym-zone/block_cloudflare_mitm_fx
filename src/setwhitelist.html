@@ -2,19 +2,23 @@
 [Whitelist]<br>
 1. Add FQDN or .FQDN you want to ignore. Click "Save".<br>
 2. Open new tab and visit whitelisted website.<br>
-<small>(<i><b>.</b>mozilla.org</i> will allow <i>mozilla.org</i> and <i>*.mozilla.org</i>)</small>
+<small>(<i><b>.</b>mozilla.org</i> will allow <i>mozilla.org</i> and <i>*.mozilla.org</i>)</small><br>
 <textarea cols="50" rows="12" id="myset_cfwhite" wrap="off"></textarea><br>
+<label><input type="checkbox" id="myset_xautoclean"> Auto-remove whitelisted domain if it is no longer use MITM services</label><br><small>(Add-on will notify you)</small><br>
 <br>
 [Advanced]<br>
-<label><input type="checkbox" id="myset_xincapsula"> Also detect and block Incapsula MiTM</label><br>
-<label><input type="checkbox" id="myset_xgshield"> Also detect and block Google's Project Shield MiTM</label><br>
-<label><input type="checkbox" id="myset_xsucuri"> Also detect and block Sucuri MiTM</label><br>
 <label><input type="checkbox" id="myset_xign3p"> Ignore 3rd party resource (not recommend)</label><br>
+<label><input type="checkbox" id="myset_xwhitemark"> Change whitelisted website's title, favicon, and website border</label><br>
 <label><input type="checkbox" checked disabled> I don't like Man-in-the-middle attack.</label><br><!-- justajokedonttakethisseriouslyLOL //-->
+<br>
+Also detect:<br>
+<label><input type="checkbox" id="myset_xincapsula"> Incapsula MiTM</label><br>
+<label><input type="checkbox" id="myset_xgshield"> Google's Project Shield MiTM</label><br>
+<label><input type="checkbox" id="myset_xsucuri"> Sucuri MiTM</label><br>
 <br>
 When MiTM attempt is detected:<br>
 <label><input type="radio" name="acttype" id="myset_xsimplewarn_0" value="0"> Show security warning page</label><br>
-<label><input type="radio" name="acttype" id="myset_xsimplewarn_1" value="1"> Just change title and favicon</label><br>
+<label><input type="radio" name="acttype" id="myset_xsimplewarn_1" value="1"> Just change title, favicon, and website border</label><br>
 <label><input type="radio" name="acttype" id="myset_xsimplewarn_2" value="2"> Cancel request immediately</label><br>
 <br>
 <input type="submit" value="  Save  ">

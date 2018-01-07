@@ -1,0 +1,52 @@
+Manifest-Version: 1.0
+
+Name: LICENSE.txt
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: qXb1tNEEzwKzeshtJ1M/kQ==
+SHA1-Digest: 03detz1pRNQMPN5Zzrp9QUFgEzI=
+
+Name: manifest.json
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: QnJYk5CRbNCObYHSeZVH6g==
+SHA1-Digest: jHusL8aDzwijyyieVxDd93fXaPA=
+
+Name: setwhitelist.html
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: fm+fbvhq6VT6zFDMVOqj0g==
+SHA1-Digest: xO/+NXtU9pseGAziYa0dpLb2nKc=
+
+Name: setwhitelist.js
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 5SSypsVZZWyJmmISP3hQIQ==
+SHA1-Digest: 3r0rOXaShtVuuvJktGoEIEcj584=
+
+Name: stop_cf_mitm.js
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: Aou+XD559L8hukeSmmQ+Zw==
+SHA1-Digest: hP9OxIjetlG8v+eU1467GVlY1UI=
+
+Name: style.css
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: qVs2pHeT+noWZ7sQttO/2Q==
+SHA1-Digest: TgXktEJyUNImPTbaPF/viYfWcQo=
+
+Name: icons/icon-16.png
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: BMpS9q28ylgmlebPGO0HBw==
+SHA1-Digest: ejT7934OdR+CRbKWJFoXPSvAo7M=
+
+Name: icons/icon-32.png
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: DPnYcEZnUZa6voVAI6nm0w==
+SHA1-Digest: CqFkcPOpoKmq7Ly82vbmq/Ouhzs=
+
+Name: icons/icon-48.png
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: PVwvbCCjWU+2fJeaUrrwVA==
+SHA1-Digest: upats+fdmYeFmAtgvIVwaW8mszA=
+
+Name: icons/icon-64.png
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: YVzojmSoYwjhM0m20OOk5A==
+SHA1-Digest: sa4ES4gA5mSb0cu9UgGpp/2eh84=
+
